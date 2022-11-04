@@ -1,7 +1,7 @@
 <?php
 
 $host = "localhost";
-$db = "fudbalskitimovi";
+$db = "euroleague";
 $username = "root";
 $password = "";
 
