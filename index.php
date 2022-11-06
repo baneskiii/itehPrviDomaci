@@ -14,7 +14,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         echo "Uspesno logovanje";
         $_SESSION['usersigned'] = "ulogovan";
         $_SESSION['id'] = $rezultat->fetch_assoc()['id'];
-        header('Location: teams.php');
+        header('Location: reservation.php');
         exit();
     }else{
         echo "<script>
