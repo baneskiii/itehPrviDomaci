@@ -12,8 +12,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
     if($rezultat->num_rows == 1){
         echo "Uspesno logovanje";
-        $_SESSION['usersigned'] = "ulogovan";
-        $_SESSION['id'] = $rezultat->fetch_assoc()['id'];
         header('Location: reservation.php');
         exit();
     }else{
@@ -31,7 +29,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Prijava</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -39,9 +37,9 @@ if(isset($_POST['username']) && isset($_POST['password'])){
       <h2>Dobrodosli na stranicu hotela</h2>
       <h3>Unesite podatke</h3>
       <form class="login-form" method = "POST">
-        <input type="text" placeholder="Username" name="username" required/>
-        <input type="password" placeholder="Password" name="password" required/>
-        <button type="submit">LOGIN</button>
+        <input type="text" placeholder="Korisnicko ime" name="username" required/>
+        <input type="password" placeholder="Lozinka" name="password" required/>
+        <button type="submit">PRIJAVA</button>
       </form>
     </div>
   </body>
