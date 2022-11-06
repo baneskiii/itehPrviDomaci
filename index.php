@@ -36,7 +36,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 </head>
 <body>
     <div class="login-card">
-      <h2>Login</h2>
+      <h2>Dobrodosli na stranicu hotela</h2>
       <h3>Unesite podatke</h3>
       <form class="login-form" method = "POST">
         <input type="text" placeholder="Username" name="username" required/>
