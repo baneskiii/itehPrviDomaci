@@ -1,43 +1,25 @@
-
   body {
     margin: 0;
     padding: 0 24px;
     background-image: url("../img/bg.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    color: #000;
+    background-attachment: fixed;
   }
-  
-
-  
-  .login-card {
-    position: relative;
-    width: 100%;
-    margin: 0 20px;
-    padding: 70px 30px 44px;
-    border-radius: 1.25rem;
-    background: #fff;
-    text-align: center;
-  }
-  
-  @media (width >= 500px) {
-    .login-card {
-      margin: 0;
-      width: 400px;
-    }
-  }
-  
-  .login-card > h2 {
+ 
+  h2 {
     font-size: 36px;
     font-weight: 600;
     margin: 0 0 12px;
+    color:rgb(255, 255, 255);
   }
   
-  .login-card > h3 {
-    color: rgba(0, 0, 0, 0.38);
+  h3 {
+    color: #216ce7;
     margin: 0 0 30px;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 250%;
+    align-self: center;
   }
   
   .login-form {

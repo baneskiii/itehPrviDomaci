@@ -17,23 +17,29 @@ class Rezervacija{
     }
 
     public static function dodaj($imeGosta, $datumOd, $datumDo, $brojSobe, mysqli $conn){
-        $q = "INSERT INTO rezervacija(imeGosta,datumOd,datumDo,brojSobe) VALUES('$imeGosta', '$datumOd', '$datumDo', '$brojSobe')";
-        return $conn->query($q);
+        
+        $upit = "INSERT INTO rezervacija(imeGosta,datumOd,datumDo,brojSobe) VALUES('$imeGosta', '$datumOd', '$datumDo', '$brojSobe')";
+        return $conn->query($upit);
     }
 
     public static function obrisi($rezervacijaID, mysqli $conn){
-        $q = "DELETE FROM rezervacija WHERE rezervacijaID=$rezervacijaID";
-        return $conn->query($q);
+        $upit = "DELETE FROM rezervacija WHERE rezervacijaID=$rezervacijaID";
+        return $conn->query($upit);
     }
 
     public static function promeni($rezervacijaID, $imeGosta, $datumOd, $datumDo, $brojSobe, mysqli $conn){
-        $q = "UPDATE rezervacija set imeGosta='$imeGosta', datumOd='$datumOd', datumDo='$datumDo', brojSobe='$brojSobe' where rezervacijaID=$rezervacijaID";
-        return $conn->query($q);
+        $upit = "UPDATE rezervacija set imeGosta='$imeGosta', datumOd='$datumOd', datumDo='$datumDo', brojSobe='$brojSobe' where rezervacijaID=$rezervacijaID";
+        return $conn->query($upit);
     }
 
     public static function vratiSve(mysqli $conn){
-        $q = "SELECT * FROM rezervacija";
-        return $conn->query($q);
+        $upit = "SELECT * FROM rezervacija";
+        return $conn->query($upit);
+    }
+
+    public static function vratiPoslednjeg(mysqli $conn){
+        $upit = "SELECT * FROM rezervacija ORDER BY rezervacijaID DESC LIMIT 1";
+        return $conn->query($upit);
     }
 
 }

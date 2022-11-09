@@ -1,5 +1,8 @@
 body{
-    background-image: url("../img/reservation-bg.svg");
+    margin: 0;
+    padding: 0 24px;
+    background-image: url("../img/bg1.svg");
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-attachment: fixed;
 }
