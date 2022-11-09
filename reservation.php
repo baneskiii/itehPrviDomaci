@@ -27,30 +27,25 @@ $rs = Rezervacija::vratiSve($conn);
     <div class="col-md-4" style="display: block;">
         <div style="text-align:center;">
             <h2 style="color:lightblue">Dodaj rezervaciju</h2>
-            <button id="dugme-dodaj" class="btn" data-toggle="modal" data-target="#dodajModal"><p style="color:green;">Dodaj</p></button>
+            <button id="dugme-dodaj" class="btn" data-toggle="modal" data-target="#dodajModal" style="height: 3.5rem;"><p style="color:green;">Dodaj</p></button>
         </div>
         
         <div style="text-align:center;">
             <h2 style="color:lightblue">Izmeni rezervaciju</h2>
-            <button id="dugme-izmeni" class="btn" data-toggle="modal" data-target="#izmeniModal"><p style="color:green;">Izmeni</p></button>
+            <button id="dugme-izmeni" class="btn" data-toggle="modal" data-target="#izmeniModal" style="height: 3.5rem;"><p style="color:green;">Izmeni</p></button>
             </div>        
         <div style="text-align:center;">
             <h2 style="color:lightblue">Obrisi rezervaciju</h2>
-            <button id="dugme-obrisi" class="btn" data-toggle="modal" data-target="#obrisiModal"><p style="color:green;">Obrisi</p></button>
+            <button id="dugme-obrisi" class="btn" data-toggle="modal" data-target="#obrisiModal" style="height: 3.5rem;"><p style="color:green;">Obrisi</p></button>
             </div>        
         <div style="text-align:center;">
             <h2 style="color:lightblue">Pretrazi rezervacije</h2>
-            <input type="text" id="input-pretrazi" class="btn" placeholder="Pretrazi rezervacije" onkeyup="">
+            <input type="text" id="input-pretrazi" class="btn" placeholder="Pretrazi rezervacije" >
+            <button id="dugme-sortiraj" class="btn" onclick="pretraziTabelu()" style="height: 3.5rem;"><p style="color:green;">Pretrazi</p></button>
             </div>
-
-        <div style="text-align:center;">
-            <h2 style="color:lightblue">Sortiraj po gostu</h2>
-            <button id="dugme-sortiraj" class="btn" onlick=""><p style="color:green;">Sortiraj</p></button>
-        </div>
-
         <div style="text-align:center;">
             <h2 style="color:lightblue">Sobe u ponudi</h2>
-            <a href="rooms.php" class="btn btn-primary">Vidi</a>
+            <a href="rooms.php" class="btn btn-primary" style="height: 3.5rem;">Vidi</a>
         </div>
 
     </div>
@@ -184,9 +179,9 @@ $rs = Rezervacija::vratiSve($conn);
 
     <div class="col-md-8">
         <div id="sve-rezervacije">
-            <table id="tabela" class="table sortable table-bordered table-hover">
+            <table id="tabelaRezervacija" class="table sortable table-bordered table-hover">
                 <thead>
-                    <tr>
+                    <tr id="hederTabele">
                         <th>ID</th>
                         <th>Ime gosta</th>
                         <th>Datum od</th>
@@ -214,10 +209,35 @@ $rs = Rezervacija::vratiSve($conn);
     </div>
 
     
-    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    
     <script src="js/main.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
+    <script>
+        function pretraziTabelu(){
+            var x, y, red, tabela, podatak, unos, filter, pronadjen;
+            unos = document.getElementById("input-pretrazi");
+            filter = unos.value.toLowerCase();
+            tabela = document.getElementById("tabelaRezervacija");
+            red = tabela.getElementsByTagName("tr");
+            for(x = 0; x < red.length; x++){
+                podatak = red[x].getElementsByTagName("td");
+                for(y = 0; y< podatak.length; y++){
+                    if(podatak[y].innerHTML.toLowerCase().indexOf(filter) > -1){
+                        pronadjen = true;
+                    }
+                }
+                if(pronadjen){
+                    red[x].style.display = "";
+                    pronadjen = false;
+                } else {
+                    if(red[x].id != "hederTabele"){
+                        red[x].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
     
 

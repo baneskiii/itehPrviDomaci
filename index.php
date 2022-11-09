@@ -17,7 +17,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     }else{
         echo "<script>
         alert('Neuspesna prijava! Proverite unete podatke!');
-        window.location.href='';  
+        window.location.href='';
         </script>";
         exit();
     }

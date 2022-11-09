@@ -89,3 +89,18 @@ $("#obrisiForma").submit(function(){
     });
 
 });
+
+$('th').click(function(){
+    var tabela = $(this).parents('table').eq(0)
+    var redovi = tabela.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+    this.asc = !this.asc
+    if (!this.asc){redovi = redovi.reverse()}
+    for (var i = 0; i < redovi.length; i++){tabela.append(redovi[i])}
+})
+function comparer(index) {
+    return function(x, y) {
+        var a = getCellValue(x, index), b = getCellValue(y, index)
+        return $.isNumeric(a) && $.isNumeric(b) ? a - b : a.toString().localeCompare(b)
+    }
+}
+function getCellValue(red, index){ return $(red).children('td').eq(index).text() }

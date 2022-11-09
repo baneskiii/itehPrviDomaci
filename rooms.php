@@ -16,6 +16,10 @@ $rs = Soba::vratiSve($conn);
     <link rel="stylesheet" href="css/rooms.css">
 </head>
 <body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+
     <div class="col-md-12">
         <h1 class="display-1" style="text-align:center; color:blue">Sobe</h1>
     </div>
@@ -52,6 +56,18 @@ $rs = Soba::vratiSve($conn);
             </table>
         </div>
     </div>
+
+    <div class = "row">
+         <div class="col-md-2">
+                <div class="col-md-1">
+                <a href="reservation.php" class="btn btn-primary" style="height: 3.5rem;">Vrati se na rezervacije</a>
+                </div>
+        </div>   
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>
