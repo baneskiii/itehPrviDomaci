@@ -36,7 +36,7 @@ $rs = Rezervacija::vratiSve($conn);
             </div>        
         <div style="text-align:center;">
             <h2 style="color:lightblue">Obrisi rezervaciju</h2>
-            <button id="dugme-obrisi" class="btn"><p style="color:green;">Obrisi</p></button>
+            <button id="dugme-obrisi" class="btn" data-toggle="modal" data-target="#obrisiModal"><p style="color:green;">Obrisi</p></button>
             </div>        
         <div style="text-align:center;">
             <h2 style="color:lightblue">Pretrazi rezervacije</h2>
@@ -146,12 +146,48 @@ $rs = Rezervacija::vratiSve($conn);
         </div>
     </div>
 
+    <div class="modal fade" id="obrisiModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border: 3px solid blue;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form action="#" method="post" id="obrisiForma">
+                            <h3 id="naslov" style="color: black" text-align="center">Brisanje rezervacije</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="number" style="border: 1px solid white" name="rezervacijaID" class="form-control" placeholder="ID rezervacije" value="" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <button  id="btnObrisi" type="submit" class="btn btn-success btn-block" style="background-color: lightblue; border: 1px solid white;"><i class="glyphicon glyphicon-plus"></i> Obrisi rezervaciju
+                                        </button>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" style="color: white; background-color: lightblue; border: 1px solid white" data-dismiss="modal">Zatvori</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <div class="col-md-8">
         <div id="sve-rezervacije">
             <table id="tabela" class="table sortable table-bordered table-hover">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Ime gosta</th>
                         <th>Datum od</th>
                         <th>Datum do</th>
@@ -163,6 +199,7 @@ $rs = Rezervacija::vratiSve($conn);
                     while($red = $rs->fetch_array()):
                     ?>
                         <tr>
+                            <td><?php echo $red["rezervacijaID"]?></td>
                             <td><?php echo $red["imeGosta"]?></td>
                             <td><?php echo $red["datumOd"]?></td>
                             <td><?php echo $red["datumDo"]?></td>
