@@ -13,5 +13,11 @@ class Soba{
         $this->povrsina = $povrsina;
         $this->brojKreveta = $brojKreveta;
     }
+
+    public static function vratiSve(mysqli $conn){
+        $upit = "SELECT * FROM soba";
+        return $conn->query($upit);
+    }
+
 }
 ?>

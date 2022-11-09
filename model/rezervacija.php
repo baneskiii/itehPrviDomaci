@@ -37,9 +37,16 @@ class Rezervacija{
         return $conn->query($upit);
     }
 
-    public static function vratiPoslednjeg(mysqli $conn){
-        $upit = "SELECT * FROM rezervacija ORDER BY rezervacijaID DESC LIMIT 1";
-        return $conn->query($upit);
+    public static function vratiPoID($rezervacijaID, mysqli $conn){
+        $upit = "SELECT * FROM rezervacija WHERE rezervacijaID=$rezervacijaID";
+        $myArray = array();
+        if ($result = $conn->query($upit)) {
+
+            while ($row = $result->fetch_array(1)) {
+                $myArray[] = $row;
+            }
+        }
+        return $myArray;
     }
 
 }

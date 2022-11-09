@@ -47,6 +47,12 @@ $rs = Rezervacija::vratiSve($conn);
             <h2 style="color:lightblue">Sortiraj po gostu</h2>
             <button id="dugme-sortiraj" class="btn" onlick=""><p style="color:green;">Sortiraj</p></button>
         </div>
+
+        <div style="text-align:center;">
+            <h2 style="color:lightblue">Sobe u ponudi</h2>
+            <a href="rooms.php" class="btn btn-primary">Vidi</a>
+        </div>
+
     </div>
 
     <div class="modal fade" id="dodajModal" role="dialog">
@@ -106,6 +112,9 @@ $rs = Rezervacija::vratiSve($conn);
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <input type="number" style="border: 1px solid white" name="rezervacijaID" class="form-control" placeholder="ID rezervacije" value="" required/>
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" style="border: 1px solid white" name="imeGosta" class="form-control" placeholder="Ime gosta" value="" required/>
                                     </div>
                                     <div class="form-group">
@@ -118,7 +127,7 @@ $rs = Rezervacija::vratiSve($conn);
                                         <input type="number" style="border: 1px solid white" name="brojSobe" class="form-control" placeholder="Broj sobe" value="" required/>
                                     </div>
                                     <div class="form-group">
-                                        <button id="btnDodaj" type="submit" class="btn btn-success btn-block" style="background-color: lightblue; border: 1px solid white;"><i class="glyphicon glyphicon-plus"></i> Izmeni rezervaciju
+                                        <button  id="btnIzmeni" type="submit" class="btn btn-success btn-block" style="background-color: lightblue; border: 1px solid white;"><i class="glyphicon glyphicon-plus"></i> Izmeni rezervaciju
                                         </button>
                                     </div>
 

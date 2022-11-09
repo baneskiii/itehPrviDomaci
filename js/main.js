@@ -29,3 +29,34 @@ $("#dodajForma").submit(function(){
 
 });
 
+$("#izmeniForma").submit(function(){
+    event.preventDefault(); //da se ne refreshuje stranica
+    console.log("Dodaj je pokrenuto");
+    const $form = $(this);
+    const serijalizacija = $form.serialize();
+    console.log(serijalizacija);
+
+
+    
+    request = $.ajax({ //ajax prihvata json objekat
+        url: 'handler/promeni.php',
+        type: 'post',
+        data: serijalizacija
+    });
+
+    request.done(function(response, txtStatus, jqXHR){
+        if(response === "Uspesna promena"){
+            alert("Rezervacija je promenjena");
+            console.log("Uspesna promena rezervacije");
+            location.reload();
+        }else{
+            console.log(""+response);
+        }
+        console.log(response);
+    });
+
+    request.fail(function(jqXHR, textStatus, errorThrown){
+        console.error("Sledeca greska se desila: "+textStatus, errorThrown);
+    });
+
+});
