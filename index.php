@@ -15,7 +15,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         header('Location: reservation.php');
         exit();
     }else{
-        echo "<script>
+        echo "
+        <script>
         alert('Neuspesna prijava! Proverite unete podatke!');
         window.location.href='';
         </script>";
@@ -31,13 +32,16 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Prijava</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="img/user.png">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
+    <br>
+    <br>
+    <br>
     <div class="col-md-4">
     </div>
-
+    
     <div class="col-md-4">
       <h2 style="text-align:center">Dobrodosli na stranicu hotela</h2>
 

@@ -13,6 +13,7 @@ $rs = Soba::vratiSve($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Sobe</title>
+    <link rel="icon" type="image/x-icon" href="img/room.png">
     <link rel="stylesheet" href="css/rooms.css">
 </head>
 <body>

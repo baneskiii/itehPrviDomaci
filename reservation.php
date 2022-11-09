@@ -5,6 +5,18 @@ require "model/rezervacija.php";
 $rs = Rezervacija::vratiSve($conn);
 
 ?>
+<?php
+ 
+$zaDvaMeseca = 60 * 60 * 24 * 60 + time();
+setcookie('poslednjaPoseta', date("G:i - d/m/y"), $zaDvaMeseca);
+if(isset($_COOKIE['poslednjaPoseta'])){
+    $poseta = $_COOKIE['poslednjaPoseta'];
+    echo "Vasa poslednja poseta je bila u ". $poseta;
+} else {
+    echo "Prva poseta";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +25,7 @@ $rs = Rezervacija::vratiSve($conn);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Rezervacija</title>
+    <link rel="icon" type="image/x-icon" href="img/hotel.png">
     <link rel="stylesheet" href="css/reservation.css">
     
 </head>
@@ -217,9 +230,9 @@ $rs = Rezervacija::vratiSve($conn);
         function pretraziTabelu(){
             var x, y, red, tabela, podatak, unos, filter, pronadjen;
             unos = document.getElementById("input-pretrazi");
-            filter = unos.value.toLowerCase();
             tabela = document.getElementById("tabelaRezervacija");
             red = tabela.getElementsByTagName("tr");
+            filter = unos.value.toLowerCase();
             for(x = 0; x < red.length; x++){
                 podatak = red[x].getElementsByTagName("td");
                 for(y = 0; y< podatak.length; y++){
@@ -238,9 +251,6 @@ $rs = Rezervacija::vratiSve($conn);
             }
         }
     </script>
-
-    
-
 
 </body>
 </html>

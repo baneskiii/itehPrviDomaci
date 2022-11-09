@@ -1,11 +1,11 @@
 $("#dodajForma").submit(function(){
-    event.preventDefault(); //da se ne refreshuje stranica
+    event.preventDefault();
     const $form = $(this);
     const $inputs = $form.find("input, select, button");
     const serijalizacija = $form.serialize();
     console.log(serijalizacija);
 
-    request = $.ajax({ //ajax prihvata json objekat
+    request = $.ajax({
         url: 'handler/dodaj.php',
         type: 'post',
         data: serijalizacija
@@ -29,14 +29,14 @@ $("#dodajForma").submit(function(){
 });
 
 $("#izmeniForma").submit(function(){
-    event.preventDefault(); //da se ne refreshuje stranica
+    event.preventDefault();
     const $form = $(this);
     const serijalizacija = $form.serialize();
     console.log(serijalizacija);
 
 
     
-    request = $.ajax({ //ajax prihvata json objekat
+    request = $.ajax({ 
         url: 'handler/promeni.php',
         type: 'post',
         data: serijalizacija
@@ -60,14 +60,14 @@ $("#izmeniForma").submit(function(){
 });
 
 $("#obrisiForma").submit(function(){
-    event.preventDefault(); //da se ne refreshuje stranica
+    event.preventDefault();
     const $form = $(this);
     const serijalizacija = $form.serialize();
     console.log(serijalizacija);
 
 
     
-    request = $.ajax({ //ajax prihvata json objekat
+    request = $.ajax({
         url: 'handler/obrisi.php',
         type: 'post',
         data: serijalizacija
@@ -76,7 +76,7 @@ $("#obrisiForma").submit(function(){
     request.done(function(response, txtStatus, jqXHR){
         if(response === "Uspesno brisanje"){
             alert("Rezervacija je obrisana");
-            console.log("Uspesn brisanje rezervacije");
+            console.log("Uspesno brisanje rezervacije");
             location.reload();
         }else{
             console.log(""+response);
@@ -97,10 +97,14 @@ $('th').click(function(){
     if (!this.asc){redovi = redovi.reverse()}
     for (var i = 0; i < redovi.length; i++){tabela.append(redovi[i])}
 })
+
 function comparer(index) {
     return function(x, y) {
         var a = getCellValue(x, index), b = getCellValue(y, index)
         return $.isNumeric(a) && $.isNumeric(b) ? a - b : a.toString().localeCompare(b)
     }
 }
-function getCellValue(red, index){ return $(red).children('td').eq(index).text() }
+
+function getCellValue(red, index){ 
+    return $(red).children('td').eq(index).text() 
+}
