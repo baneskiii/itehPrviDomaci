@@ -54,7 +54,7 @@ if(isset($_COOKIE['poslednjaPoseta'])){
         <div style="text-align:center;">
             <h2 style="color:lightblue">Pretrazi rezervacije</h2>
             <input type="text" id="input-pretrazi" class="btn" placeholder="Pretrazi rezervacije" >
-            <button id="dugme-sortiraj" class="btn" onclick="pretraziTabelu()" style="height: 3.5rem;"><p style="color:green;">Pretrazi</p></button>
+            <button id="dugme-pretrazi" class="btn" onclick="pretraziTabelu()" style="height: 3.5rem;"><p style="color:green;">Pretrazi</p></button>
             </div>
         <div style="text-align:center;">
             <h2 style="color:lightblue">Sobe u ponudi</h2>
@@ -150,7 +150,6 @@ if(isset($_COOKIE['poslednjaPoseta'])){
                     <button type="button" class="btn btn-default" style="color: white; background-color: lightblue; border: 1px solid white" data-dismiss="modal">Zatvori</button>
                 </div>
             </div>
-
         </div>
     </div>
 

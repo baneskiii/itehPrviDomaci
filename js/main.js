@@ -1,7 +1,6 @@
 $("#dodajForma").submit(function(){
     event.preventDefault();
     const $form = $(this);
-    const $inputs = $form.find("input, select, button");
     const serijalizacija = $form.serialize();
     console.log(serijalizacija);
 
@@ -17,7 +16,8 @@ $("#dodajForma").submit(function(){
             console.log("Uspesno dodavanje rezervacije");
             location.reload();
         }else{
-            console.log(""+response);
+            console.log("Neuspesno dodavanje rezervacije"+response);
+            alert("Rezervacija nije dodata");
         }
         console.log(response);
     });
@@ -49,6 +49,7 @@ $("#izmeniForma").submit(function(){
             location.reload();
         }else{
             console.log(""+response);
+            alert("Rezervacija nije promenjena");
         }
         console.log(response);
     });
@@ -80,6 +81,7 @@ $("#obrisiForma").submit(function(){
             location.reload();
         }else{
             console.log(""+response);
+            alert("Rezervacija nije obrisana");
         }
         console.log(response);
     });

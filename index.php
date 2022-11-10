@@ -8,10 +8,10 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $rezultat = Korisnik::login($username, $password, $conn);
+    $rezultat = Korisnik::prijava($username, $password, $conn);
 
     if($rezultat->num_rows == 1){
-        echo "Uspesno logovanje";
+        echo "Uspesna prijava";
         header('Location: reservation.php');
         exit();
     }else{
